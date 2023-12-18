@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /ui-kit
+
+Sitemap: https://www.fourmeta.com/sitemap.xml
+
+Sitemap: https://www.fourmeta.com/sitemap.xml

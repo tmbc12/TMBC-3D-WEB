@@ -1,0 +1,774 @@
+<!DOCTYPE html><!-- Last Published: Thu Dec 14 2023 08:38:16 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.fourmeta.com" data-wf-page="6523d494cfb155fe8be28c80" data-wf-site="63f5d378a903c2a12583ce2f" lang="en"><head><meta charset="utf-8"/><title>Magento to Shopify Migration Guide 2022</title><meta content="The Fourmeta Agency’s blog. Read our blog article: How to migrate from Magento to Shopify. We are happy to share our knowledge with you. Don&#x27;t want to miss anything? Subscribe to our blog updates!" name="description"/><meta content="Magento to Shopify Migration Guide 2022" property="og:title"/><meta content="The Fourmeta Agency’s blog. Read our blog article: How to migrate from Magento to Shopify. We are happy to share our knowledge with you. Don&#x27;t want to miss anything? Subscribe to our blog updates!" property="og:description"/><meta content="Magento to Shopify Migration Guide 2022" property="twitter:title"/><meta content="The Fourmeta Agency’s blog. Read our blog article: How to migrate from Magento to Shopify. We are happy to share our knowledge with you. Don&#x27;t want to miss anything? Subscribe to our blog updates!" property="twitter:description"/><meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/css/fourmeta-stage.59e382e77.min.css" rel="stylesheet" type="text/css"/><style>@media (max-width:991px) and (min-width:768px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="a8ab00c3-1f68-e308-e44f-6f2133ce0486"] {width:88.5em;}}@media (max-width:767px) and (min-width:480px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="a8ab00c3-1f68-e308-e44f-6f2133ce0486"] {width:88.5em;}html.w-mod-js:not(.w-mod-ix) [data-w-id="a8ab00c3-1f68-e308-e44f-6f2133ce0486"] {width:88.5em;}}@media (max-width:479px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="a8ab00c3-1f68-e308-e44f-6f2133ce0486"] {width:88.5em;}html.w-mod-js:not(.w-mod-ix) [data-w-id="a8ab00c3-1f68-e308-e44f-6f2133ce0486"] {width:88.5em;}}</style><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/641876b69b832181880648d6_32.png" rel="shortcut icon" type="image/x-icon"/><link href="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/641876ba685c492a87504efa_256.png" rel="apple-touch-icon"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3MEES0WSTX"></script><script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('set', 'developer_id.dZGVlNj', true);gtag('config', 'G-3MEES0WSTX');</script><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KSBC9MHH');</script>
+<!-- End Google Tag Manager -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "j5tmr56z4y");
+</script>
+<!-- Leadfeeder tracker -->
+<script> (function(ss,ex){ window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));}; (function(d,s){ fs=d.getElementsByTagName(s)[0]; function ce(src){ var cs=d.createElement(s); cs.src=src; cs.async=1; fs.parentNode.insertBefore(cs,fs); }; ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js'); })(document,'script'); })('ywVkO4XPNOw4Z6Bj'); </script>
+
+<!-- Новый скрипт для анимаций -->
+<style>
+[text-split] {opacity: 0;}
+html.w-editor [text-split] {opacity: 1;}
+
+  /* Change autocomplete styles in WebKit */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-bottom: 1px solid #e6e6e6;
+  -webkit-text-fill-color: #e6e6e6;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  background-color: transparent !important;
+  transition: all 5000000s ease-in-out 0s !important;
+}
+
+.word {
+	overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  transform-origin: bottom;
+}
+  
+  /* Accordion */
+  .accordion__content {
+    overflow: hidden !important;
+    max-height: 0 !important;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1) !important;
+  }
+
+  .accordion__content.w-dropdown-list.w--open {
+    max-height: 150rem !important;
+    transition: max-height 1s ease-in-out !important;
+  } 
+  
+</style>
+
+<!-- Finsweet Cookie Consent -->
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/cookie-consent@1/fs-cc.js" fs-cc-mode="informational"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<style>
+	
+  .width90 {pointer-events: none;}
+  .cursor-wrapper {pointer-events: none;}
+  .overlay{display:flex;}
+  .cursor-wrapper{display:flex;}
+
+	.disabled_submit{pointer-events: none; opacity: .2;}
+	.active_submit {display: none;}
+
+  .text_area {resize: none;}
+
+  .services_list{-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);}
+  .subserv{-webkit-backdrop-filter: blur(20px);backdrop-filter: blur(20px);}
+  
+  .flickity-viewport {width: 100%;overflow: visible !important;}
+  .flickity-button {display: none;}
+
+  .services_why_tab {cursor:none;}
+  .w-inline-block{cursor:none;} 
+  .w-tab-link {cursor:none;}
+  .w--current{cursor:none;}
+  .flickity-slider{cursor:none;}
+  .flickity-viewport{cursor:none;}
+  .is-draggable{cursor:none;}
+  .flickity-enabled{cursor:none;}
+
+.contacts_bg{height: 100vh;height: calc(var(---vh, 1vh) * 100);}
+
+.services_why_tabs {-ms-overflow-style: none; scrollbar-width: none; overflow-x: scroll;}
+.services_why_tabs::-webkit-scrollbar {display: none;}
+.tricks-slider_slide-2:nth-last-child(1) {border-right:0px solid rgba(255,255,255,0.0)}
+.agency_principle:nth-last-child(1) {border-right:0px solid rgba(255,255,255,0.0)}
+
+.clients_card:nth-last-child(3n-2) {margin-top:-5em;}
+.clients_card:nth-last-child(3n-3) {margin-top:-5em;}
+.reason_card:nth-last-child(3n-2) {margin-top:-5em;}
+.reason_card:nth-last-child(3n-3) {margin-top:-5em;}
+
+.home_work_double:nth-child(even) {margin-top:30vh}
+.expertise_row:nth-child(-n+2) {border-top:1px solid rgba(255,255,255,0.3)}
+@media only screen and (max-width: 991px) {
+  .cursor-wrapper{display:none;}
+.reason_card:nth-last-child(3n-2) {margin-top:0em;}
+.reason_card:nth-last-child(3n-3) {margin-top:0em;}
+.reason_card:nth-last-child(2n-1) {margin-top:-5em;}
+.clients_card:nth-last-child(3n-2) {margin-top:0em;}
+.clients_card:nth-last-child(3n-3) {margin-top:0em;}
+.clients_card:nth-last-child(2n-1) {margin-top:-5em;}
+}
+@media only screen and (max-width: 767px) {
+.reason_card:nth-last-child(2n-1) {margin-top:0em;}
+.clients_card:nth-last-child(2n-1) {margin-top:0em;}
+.home_work_double:nth-child(even) {margin-top:0vh}
+.expertise_row:nth-child(-n+2) {border-top:0px solid rgba(255,255,255,0.3)}
+.expertise_row:nth-child(-n+1) {border-top:1px solid rgba(255,255,255,0.3)}
+.agency_principle:nth-last-child(1) {border-bottom:0px solid rgba(255,255,255,0.0);padding-bottom:0em;}
+}
+  
+/* blog filter */
+  .hero-blogs__categories-item.fltr-active a, .blogs__categories-item.fltr-active a {
+  	color: white;
+  }
+  .js-filter-disabled {
+    opacity: 25% !important;
+  }
+
+  .js-filter-disabled > a {
+    cursor: not-allowed;
+  }
+  
+  .disabled_swiper_button {
+    opacity: 50%;
+    cursor: auto;
+    pointer-events: none;
+  }
+  
+  .blog__richtext h1,
+  .blog__richtext h2,
+  .blog__richtext h3,
+  .blog__richtext h4,
+  .blog__richtext h5,
+  .blog__richtext h6 {
+	font-family: var(--fonts--serif);
+  }
+  
+  .blog__richtext a {
+  	color: inherit;
+    text-decoration: underline;
+  }
+  
+  .blog__richtext figure {
+    max-width: 100%;
+  }
+  
+  .indicator-wrap {
+      transform: scale(-1, 1);
+  }
+  
+  .body--light .content {
+	background-color: white !important;
+  }
+
+  .body--light .content div, 
+  .body--light .content h1,
+  .body--light .breadcrumbs,
+  .body--light .breadcrumbs .subtitle,
+  .body--light .times{
+      color: black !important;
+  }
+
+  .body--light .breadcrumbs .crumbs_num {
+      border-color: black !important;
+  }
+
+  .body--light .logo {
+      filter: invert(100%);
+  }
+
+  .body--light .next-blog__category {
+      background-color: #1D202426;	
+  }
+  
+  .body--light .navbutton__theme--light {
+	display: flex !important;
+  }
+
+  .body--light .navbutton__theme--dark {
+      display: none !important;
+  }
+
+  .body--light .next_case_button {
+      background-color: #F4F4F4 !important;
+  }
+  
+    .navbutton.services.for-close {
+    background-color: var(--colors--black) !important;
+    color: var(--colors--cold-white) !important;
+}
+  .navbutton.services.for-close-mobile {
+    background-color: var(--colors--black) !important;
+    color: var(--colors--cold-white) !important;
+}
+  
+  .body--light .navbutton{
+    border-color: var(--colors--black-80) !important;
+    background-color: var(--colors--black-2) !important;
+    color: var(--colors--black) !important;
+  }
+  
+  .body--light .navbutton:hover {
+    color: var(--colors--cold-white) !important;
+    background-color: var(--colors--black) !important;
+  }
+  
+  .body--light .navbutton-mob {
+    border-color: var(--colors--black-80) !important;
+    background-color: var(--colors--black-2) !important;
+    color: var(--colors--black) !important;
+  }
+  
+  .body--light .navbutton-mob:hover {
+    color: var(--colors--cold-white) !important;
+    background-color: var(--colors--black) !important;
+  }
+  
+  .navbutton.js-navbutton-theme.light-mode {
+    border-color: var(--colors--black-80) !important;
+    background-color: var(--colors--black-2) !important;
+    color: var(--colors--black) !important;
+}
+  .navbutton.js-navbutton-theme.light-mode:hover {
+    border-color: var(--colors--black) !important;
+    background-color: var(--colors--black) !important;
+    color: var(--colors--cold-white) !important;
+}
+  .navbutton-mob.js-navbutton-theme.light-mode {
+    border-color: var(--colors--black-80) !important;
+    background-color: var(--colors--black-2) !important;
+    color: var(--colors--black) !important;
+}
+  .navbutton-mob.js-navbutton-theme.light-mode:hover {
+    border-color: var(--colors--black) !important;
+    background-color: var(--colors--black) !important;
+    color: var(--colors--cold-white) !important;
+}
+  
+  .services_list *::-webkit-scrollbar {
+    width: 0 !important;
+  }
+  .services_list *::-webkit-scrollbar-thumb {
+    background: transparent !important;
+  }
+  
+</style>
+
+<script>
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('---vh', `${vh}px`);
+// We listen to the resize event
+window.addEventListener('resize', () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('---vh', `${vh}px`);
+});
+</script>
+
+<script src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js"></script>
+<script>Bugsnag.start({ apiKey: 'e5f67fe639349ded21d3fbf8e9de4ea9' })</script>
+</head><body class="body"><div class="w-embed w-iframe"><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSBC9MHH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --></div><div class="cursor-wrapper"><div class="cursor"><div class="cursor_in"><div class="cursor_dot"></div></div><div class="cursor_opencase"><div class="font-2">Open case</div></div><div class="cursor_learnmore"><div class="font-2">Learn more</div></div><div class="cursor_drag"><div class="font-2">Drag<br/></div></div></div></div><div class="book-a-call"><a data-w-id="7aee9f47-4936-4a24-1aa6-ab051f7f9dc8" href="#" class="book-a-call_btn fixed-width w-inline-block"><div class="font_light">Brief</div></a></div><section class="times"><div class="time-array-wrap"><div data-timezone="Europe/London" class="time-array"><h3 class="subtitle_light time-name">LND</h3><div timeshow="" class="subtitle_light time-show output">00:00:00</div><div class="time-dot"><div class="time-dot-in"></div></div></div><div data-timezone="America/New_York" class="time-array"><h3 class="subtitle_light time-name">NYC</h3><div timeshow="" class="subtitle_light time-show output">00:00:00</div><div class="time-dot"><div class="time-dot-in"></div></div></div></div></section><div class="breadcrumbs"><a data-w-id="e41cfe35-7e60-aef1-c65d-83a2695c2462" href="/" class="subtitle link timeout">Fourmeta <sup>©</sup></a><div class="subtitle crumbs_devider animated_crumbs subtitle_light">—</div><a href="/blog" class="subtitle link timeout animated_crumbs subtitle_light">Magento to Shopify Migration Guide 2022</a></div><div class="logo"><a data-w-id="a7d0c416-90a3-e211-8f3e-ed3ed7455d01" href="/" class="link timeout w-inline-block"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/63f8a11fb01fcd7aa418bfa0_light_logo.svg" loading="eager" alt="" id="close-button-id" class="light_logo"/></a></div><div class="brief"><div data-button-scroll-allow="" data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f28272" class="close_brief_overlay"></div><div class="brief_content"><div data-button-scroll-allow="" data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f28274" class="close_btief"></div><div class="brief_header"><div class="brief_empty_start"><div class="menu_brief_00"></div></div><div class="brief_menu_item"><div data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f28279" class="brief_menu_step_01"><div class="subtitle fixed_height">Project Type</div></div><div class="menu_brief_01"><div class="menu_brief_01_in"></div></div></div><div class="brief_menu_item"><div data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f2827f" class="brief_menu_step_02"><div class="subtitle fixed_height">Budget</div></div><div class="menu_brief_02"><div class="menu_brief_02_in"></div></div></div><div class="brief_menu_item"><div data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f28285" class="brief_menu_step_03"><div class="subtitle fixed_height">Referrals</div></div><div class="menu_brief_03"><div class="menu_brief_03_in"></div></div></div><div class="brief_menu_item"><div data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f2828b" class="brief_menu_step_04"><div class="subtitle fixed_height">Details</div></div><div class="menu_brief_04"><div class="menu_brief_04_in"></div></div></div><div class="brief_empty_end"><div class="menu_brief_last"><div class="menu_brief_last_in"></div></div></div></div><div class="brief_main"><div class="brief_copy"><div class="form-block w-form"><form id="wf-form-Brief" name="wf-form-Brief" data-name="Brief" action="https://formcarry.com/s/_xMygopYTN" method="post" class="ajaxform" data-wf-page-id="6523d494cfb155fe8be28c80" data-wf-element-id="14b5055c-1a5b-5a2d-68ec-072be4f28296"><div class="brief_hello"><div class="h1 black"><span class="serif">Hi there!</span></div><div class="bigsubtitle">Happy to see that you decided to<br/>connect with us.</div></div><div class="brief_type"><div class="subtitle">What kind of project would you like us to craft for you?</div><div data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282a2" class="buttons_list_brief"><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282a3" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="UX-Research-Design" name="Project-type" value="UX Research &amp; Design" data-name="Project type" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="UX-Research-Design">UX Research &amp; Design</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282a7" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="E-commerce" name="Project-type" value="E-commerce" data-name="Project type" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="E-commerce">eCommerce</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282ab" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="Mobile-Application" name="Project-type" value="Mobile Application" data-name="Project type" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="Mobile-Application">Mobile Application</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282af" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="UX-UI" name="Project-type" value="UX &amp; UI" data-name="Project type" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="UX-UI">UX &amp; UI</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282b3" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="Digital-Branding" name="Project-type" value="Digital Branding" data-name="Project type" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="Digital-Branding">Digital Branding</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282b7" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="Branding-Website" name="Project-type" value="Branding &amp; Website" data-name="Project type" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="Branding-Website">Branding &amp; Website</span></label><label data-w-id="446d8206-6c4c-d915-d594-3f165de3e413" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="Bespoke-Development" name="Project-type" value="Bespoke Development" data-name="Project type" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="Bespoke-Development">Bespoke Development</span></label></div></div><div class="brief_budget"><div class="subtitle">Can you tell us about your budget range for this project?</div><div data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282be" class="buttons_list_brief"><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282bf" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="5k---10k-2" name="Budget" value="$5k - $10k" data-name="Budget" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="5k---10k-2">$5k - $10k</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282c3" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="10k---50k-2" name="Budget" value="$10k - $50k" data-name="Budget" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="10k---50k-2">$10k - $50k</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282c7" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="50k---100k" name="Budget" value="$50k - $100k" data-name="Budget" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="50k---100k">$50k - $100k</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282cb" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="100k" name="Budget" value="$100k+" data-name="Budget" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="100k">$100k+</span></label></div></div><div class="brief_from"><div class="subtitle">How did you learn about Fourmeta Agency?</div><div data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282d2" class="buttons_list_brief"><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282d3" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="Awwwards-website" name="From" value="Awwwards website" data-name="From" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="Awwwards-website">Awwwards website</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282d7" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="A-friend" name="From" value="A friend" data-name="From" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="A-friend">A friend</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282db" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="One-of-our-projects" name="From" value="One of our projects" data-name="From" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="One-of-our-projects">One of our projects</span></label><label data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282df" class="radio_button w-radio"><div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio_outline w-radio-input"></div><input type="radio" id="Word-on-the-street" name="From" value="Word on the street" data-name="From" style="opacity:0;position:absolute;z-index:-1"/><span class="subtitle w-form-label" for="Word-on-the-street">Word on the street</span></label></div></div><div class="brief_details"><div class="subtitle">Nice, now give us a brief detail about your project</div><div class="w-layout-grid form_inputs_list_2col"><input type="text" class="input subtitle input-required w-input" maxlength="256" name="Name" data-name="Name" placeholder="Full name*" data-w-id="16a84aff-db09-6ece-946b-ef4cde6c1af3" id="Name" required=""/><input type="text" class="input subtitle input-required w-input" maxlength="256" name="Company" data-name="Company" placeholder="Company*" data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282e8" id="Company" required=""/><input type="text" class="input subtitle input-required w-input" maxlength="256" name="E-mail" data-name="E-mail" placeholder="E-mail*" data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282e9" id="E-mail" required=""/><input type="text" class="input subtitle w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="Phone" data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282ea" id="Phone"/></div><textarea class="text_area subtitle custom_height w-input" maxlength="5000" name="Description" data-name="Description" placeholder="Description" data-w-id="14b5055c-1a5b-5a2d-68ec-072be4f282eb" id="Description"></textarea><input type="submit" value="Submit" data-wait="Please wait..." class="submit_form subtitle submit_timeout js-disabled_submit w-button"/><input type="submit" value="Submit" data-wait="Please wait..." data-w-id="9cb994e8-5f77-087c-aeb3-12557b76e5b4" class="submit_form subtitle submit_timeout js-active_submit w-button"/></div><div class="brief_thanks"><div class="h1 black"><span class="serif">Thanks for <br/>request!</span></div><div class="bigsubtitle">We answer you as soon as possible!</div></div></form><div class="success-message w-form-done"><div class="brief_thanks_inside"><div class="h1 black"><span class="serif">Thanks for <br/>request!</span></div><div class="subtitle brief_text">We answer you as soon as possible!</div></div></div><div class="error-message w-form-fail"><div class="brief_error"><div class="h1 black"><span class="serif">Oops!</span></div><div class="subtitle brief_text">Something went wrong while submitting the form.</div></div></div></div></div></div></div></div><div data-w-id="a8ab00c3-1f68-e308-e44f-6f2133ce0486" class="navbar"><div data-w-id="25dbbd7e-53d9-e2f7-f7b7-643df001539f" class="navbutton js-navbutton-theme"><div class="navbutton__theme navbutton__theme--dark w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="currentColor" fill-rule="evenodd" d="M12 2.4a1.2 1.2 0 0 1 1.2 1.2v1.2a1.2 1.2 0 1 1-2.4 0V3.6A1.2 1.2 0 0 1 12 2.4Zm4.8 9.6a4.8 4.8 0 1 1-9.6 0 4.8 4.8 0 0 1 9.6 0Zm-.556 5.94.848.848a1.2 1.2 0 0 0 1.697-1.697l-.849-.848a1.2 1.2 0 0 0-1.696 1.697Zm2.544-12.73a1.2 1.2 0 0 1 0 1.697l-.848.849a1.2 1.2 0 1 1-1.696-1.697l.848-.848a1.2 1.2 0 0 1 1.697 0h-.001ZM20.4 13.2a1.2 1.2 0 1 0 0-2.4h-1.2a1.2 1.2 0 1 0 0 2.4h1.2ZM12 18a1.2 1.2 0 0 1 1.2 1.2v1.2a1.2 1.2 0 1 1-2.4 0v-1.2A1.2 1.2 0 0 1 12 18ZM6.06 7.757A1.2 1.2 0 1 0 7.758 6.06l-.85-.848a1.2 1.2 0 0 0-1.696 1.696l.848.849ZM7.757 17.94l-.848.848a1.2 1.2 0 0 1-1.697-1.697l.848-.848a1.2 1.2 0 0 1 1.697 1.697ZM4.8 13.2a1.2 1.2 0 1 0 0-2.4H3.6a1.2 1.2 0 1 0 0 2.4h1.2Z" clip-rule="evenodd"/>
+</svg></div><div class="navbutton__theme navbutton__theme--light w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="currentColor" d="M20.752 15.951A9.6 9.6 0 0 1 8.049 3.248a9.601 9.601 0 1 0 12.703 12.703Z"/>
+</svg></div></div><a data-w-id="8e35d5df-f6fd-dcc4-ff7f-edb3fffcfddb" href="/projects" class="navbutton timeout w-inline-block"><div class="font_light is-navbutton">Projects</div></a><div data-w-id="8e35d5df-f6fd-dcc4-ff7f-edb3fffcfdde" class="navbutton services for-open"><div class="font_light is-navbutton">Services</div><div class="navbutton_plus w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 20 20" fill="none">
+  <path d="M10.0369 1V10V19" stroke="currentColor" stroke-width="2"/>
+  <path d="M19.0369 10L10.0369 10L1.03687 10" stroke="currentColor" stroke-width="2"/>
+</svg></div></div><div data-w-id="8e35d5df-f6fd-dcc4-ff7f-edb3fffcfde2" class="navbutton services for-close"><div class="font_light is-navbutton">Close</div><div class="navbutton_plus w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 20 20" fill="none">
+  <path d="M10.0369 1V10V19" stroke="white" stroke-width="2"/>
+  <path d="M19.0369 10L10.0369 10L1.03687 10" stroke="white" stroke-width="2"/>
+</svg></div></div><a data-w-id="8e35d5df-f6fd-dcc4-ff7f-edb3fffcfde6" href="/about-us" class="navbutton timeout w-inline-block"><div class="font_light is-navbutton">About</div></a><a data-w-id="8e35d5df-f6fd-dcc4-ff7f-edb3fffcfde9" href="/blog" class="navbutton w-inline-block"><div class="font_light is-navbutton">Blog</div></a><a data-w-id="8e35d5df-f6fd-dcc4-ff7f-edb3fffcfdec" href="/contact" class="navbutton-green-2 timeout w-inline-block"><div class="font_light is-navbutton">Contact us</div></a><div data-w-id="99407c8f-0c50-2e7f-c9f2-7bc0a3be5e1b" class="navbutton-mob services for-open"><div class="font_light is-navbutton">Menu</div><div class="navbutton-mob__dots"><div class="navbutton-mob__dot w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 4 4" fill="none">
+  <circle cx="2" cy="2" r="2" fill="currentColor"/>
+</svg></div><div class="navbutton-mob__dot w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 4 4" fill="none">
+  <circle cx="2" cy="2" r="2" fill="currentColor"/>
+</svg></div></div></div></div><div class="navbar-opened"><a data-w-id="77fa7ee5-75ed-2df0-d07f-23f7a0d57044" href="/projects" class="navbutton-white timeout w-inline-block"><div class="font_light is-navbutton">Projects</div></a><div data-w-id="77fa7ee5-75ed-2df0-d07f-23f7a0d57047" class="navbutton services for-open"><div class="font_light is-navbutton">Services</div><div class="navbutton_plus w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 20 20" fill="none">
+  <path d="M10.0369 1V10V19" stroke="white" stroke-width="2"/>
+  <path d="M19.0369 10L10.0369 10L1.03687 10" stroke="white" stroke-width="2"/>
+</svg></div></div><div data-w-id="77fa7ee5-75ed-2df0-d07f-23f7a0d5704b" class="navbutton services for-close"><div class="font_light is-navbutton">Close</div><div class="navbutton_plus w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 20 20" fill="none">
+  <path d="M10.0369 1V10V19" stroke="currentColor" stroke-width="2"/>
+  <path d="M19.0369 10L10.0369 10L1.03687 10" stroke="currentColor" stroke-width="2"/>
+</svg></div></div><a data-w-id="77fa7ee5-75ed-2df0-d07f-23f7a0d5704f" href="/about-us" class="navbutton-white timeout w-inline-block"><div class="font_light is-navbutton">About</div></a><a data-w-id="77fa7ee5-75ed-2df0-d07f-23f7a0d57052" href="/blog" class="navbutton-white timeout w-inline-block"><div class="font_light is-navbutton">Blog</div></a><a data-w-id="77fa7ee5-75ed-2df0-d07f-23f7a0d57055" href="/contact" class="navbutton-contact-black w-inline-block"><div class="navbutton_contact-arrow is-left"></div><div class="font_light is-navbutton">Contact us</div><div class="navbutton_contact-arrow is-right"></div></a><div data-w-id="97c322f1-7066-9294-7b67-9e81cc82de3b" class="navbutton-mob services for-close-mobile"><div class="font_light is-navbutton">Close</div><div class="navbutton_plus w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 20 20" fill="none">
+  <path d="M10.0369 1V10V19" stroke="currentColor" stroke-width="2"/>
+  <path d="M19.0369 10L10.0369 10L1.03687 10" stroke="currentColor" stroke-width="2"/>
+</svg></div></div></div><div class="services_all"><div class="services_list"><div class="services__desk"><div class="services_left"><div class="f_body-small is-black">Services</div><div class="services_points-wrap"><div class="services_point-wrap"><div class="services_point-arrow-wrap"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/654a1365d8236631fc82e3cf_arrow-services.svg" loading="lazy" alt="" class="services_point-arrow"/></div><a dw-services="1" href="/shopify-ecommerce" class="f_link services-link active w-inline-block"><div>Shopify eCommerce (8)</div></a></div><div class="services_point-wrap"><div class="services_point-arrow-wrap"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/654a1365d8236631fc82e3cf_arrow-services.svg" loading="lazy" alt="" class="services_point-arrow"/></div><a dw-services="2" href="/digital-product-development" class="f_link services-link w-inline-block"><div>Digital product development (9)</div></a></div><div class="services_point-wrap"><div class="services_point-arrow-wrap"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/654a1365d8236631fc82e3cf_arrow-services.svg" loading="lazy" alt="" class="services_point-arrow"/></div><a dw-services="3" href="/user-experience-design" class="f_link services-link w-inline-block"><div>User experience design (7)</div></a></div><div class="services_point-wrap"><div class="services_point-arrow-wrap"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/654a1365d8236631fc82e3cf_arrow-services.svg" loading="lazy" alt="" class="services_point-arrow"/></div><a dw-services="4" href="/webflow-development" class="f_link services-link w-inline-block"><div>Webflow development (7)</div></a></div><div class="services_point-wrap"><div class="services_point-arrow-wrap"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/654a1365d8236631fc82e3cf_arrow-services.svg" loading="lazy" alt="" class="services_point-arrow"/></div><a dw-services="5" href="/branding-agency" class="f_link services-link w-inline-block"><div>Branding (6)</div></a></div><div class="services_point-wrap"><div class="services_point-arrow-wrap"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/654a1365d8236631fc82e3cf_arrow-services.svg" loading="lazy" alt="" class="services_point-arrow"/></div><a dw-services="6" href="/content-creation" class="f_link services-link w-inline-block"><div>3D/Motion design (5)</div></a></div><div class="w-embed"><style>
+.services_point-arrow-wrap {
+  transition: 200ms ease-out;
+}
+
+.services_point-wrap:hover .services_point-arrow-wrap {
+	width: 1.7em;
+}
+
+.services_point-wrap:hover .f_link {
+  text-decoration: none
+}
+</style></div></div></div><div class="services_right-wrap"><div dw-services="1" class="services_right active"><div class="f_body-small is-black">Expertise <span class="services_num">08</span></div><div class="services_tags-wrap"><a href="/shopify-hydrogen-development" class="services_tag-link services_tag-link--active w-inline-block"><div class="f_body-small">Shopify Hydrogen Development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Custom Shopify app</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Replatforming</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Conversation rate optimization</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">System integrations</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">SEO and data migration</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Online-to-offline strategy</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Payments and checkout</div></a></div></div><div dw-services="2" class="services_right"><div class="f_body-small is-black">Expertise <span class="services_num">09</span></div><div class="services_tags-wrap"><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">eCommerce development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">App development, React</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Website development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Web3</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">System integration</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">SPA development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Infrastructure, DevOps</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">SaaS development</div></a></div></div><div dw-services="3" class="services_right"><div class="f_body-small is-black">Expertise <span class="services_num">07</span></div><div class="services_tags-wrap"><a href="/ux-audit-service" class="services_tag-link services_tag-link--active w-inline-block"><div class="f_body-small">UX Audit Service</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Research &amp; Strategy</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">User interface design</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Interactive prototypes</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">CRO</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Design systems</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Usability testing</div></a></div></div><div dw-services="4" class="services_right"><div class="f_body-small is-black">Expertise <span class="services_num">07</span></div><div class="services_tags-wrap"><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Landing page design<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Business website design<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Showcase website design<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Enterprise website design<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Conversion rate optimization<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Analytics and CRO<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Consulting</div></a></div></div><div dw-services="5" class="services_right"><div class="f_body-small is-black">Expertise <span class="services_num">06</span></div><div class="services_tags-wrap"><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Brand strategy<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Brand identity &amp; positioning<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Visual language<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Rebranding<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Brand messaging<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Brand implementation &amp; guidelines</div></a></div></div><div dw-services="6" class="services_right"><div class="f_body-small is-black">Expertise <span class="services_num">05</span></div><div class="services_tags-wrap"><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Video production<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Copywriting<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Illustrations<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Video explainers<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Marketing materials<br/></div></a></div></div></div></div><div class="services__tablet-mob"><div class="services__mob-header"><a href="/" class="services__mob-header__logo w-inline-block"></a><div class="services__mob-header__btn-time"><section class="times is--services"><div class="w-embed"><style>
+.is--services .time-dot-in {
+background-color: var(--colors--black);
+}
+</style></div><div class="time-array-wrap is--services"><div data-timezone="Europe/London" class="time-array"><h3 class="subtitle_light time-name">LND</h3><div timeshow="" class="subtitle_light time-show output">00:00:00</div><div class="time-dot"><div class="time-dot-in"></div></div></div><div data-timezone="America/New_York" class="time-array"><h3 class="subtitle_light time-name">NYC</h3><div timeshow="" class="subtitle_light time-show output">00:00:00</div><div class="time-dot"><div class="time-dot-in"></div></div></div></div></section><a data-w-id="32e97fff-997c-88e8-4eff-6210b5d31c8c" href="#" class="services__mob-header__btn w-inline-block"><div class="services__mob-header__btn-txt">Brief</div></a></div><div class="services__mob-header_line"></div></div><div class="f_body-small is-black is--services">Services</div><div class="services__scroll"><div class="services__links"><a href="/projects" class="services__menu-link">Projects</a><a href="/about-us" class="services__menu-link">About</a><a href="/blog" class="services__menu-link">Blog</a><div class="services__menu-link">Services</div><div data-w-id="807454e8-7d52-5c62-e12b-15b0b0ce23f3" class="services__tab__btn is--mob"><div class="html-embed-6 is--top w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 10 6" fill="none">
+  <path d="M9.5 5.5L5 1L0.5 5.5" stroke="currentColor" stroke-width="1"/>
+</svg></div><div class="html-embed-6 is--bottom w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 10 6" fill="none">
+  <path d="M9.5 0.5L5 5L0.5 0.5" stroke="currentColor" stroke-width="1"/>
+</svg></div></div><div class="services__num">(23)</div></div><div class="services__tab__service"><a dw-services="2" href="/shopify-ecommerce" class="f_link services-link w-inline-block"><div>Shopify eCommerce (8)</div></a><div class="services__tab__tags-hidden"><div class="services__tab__tags"><a href="/shopify-hydrogen-development" class="services_tag-link services_tag-link--active w-inline-block"><div class="f_body-small">Shopify Hydrogen Development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Custom Shopify app</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Replatforming</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Conversation rate optimization</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">System integrations</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">SEO and data migration</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Online-to-offline strategy</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Payments and checkout</div></a></div></div></div><div class="services__tab__service"><a dw-services="2" href="/digital-product-development" class="f_link services-link w-inline-block"><div>Digital product development (9)</div></a><div class="services__tab__tags-hidden"><div class="services__tab__tags"><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">eCommerce development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">App development, React</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Website development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Web3</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">System integration</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">SPA development</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Infrastructure, DevOps</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">SaaS development</div></a></div></div></div><div class="services__tab__service"><a dw-services="3" href="/user-experience-design" class="f_link services-link w-inline-block"><div>User experience design (7)</div></a><div class="services__tab__tags-hidden"><div class="services__tab__tags"><a href="/ux-audit-service" class="services_tag-link services_tag-link--active w-inline-block"><div class="f_body-small">UX Audit Service</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Research &amp; Strategy</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">User interface design</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Interactive prototypes</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">CRO</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Design systems</div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Usability testing</div></a></div></div></div><div class="services__tab__service"><a dw-services="4" href="/webflow-development" class="f_link services-link w-inline-block"><div>Webflow development (7)</div></a><div class="services__tab__tags-hidden"><div class="services__tab__tags"><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Landing page design<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Business website design<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Showcase website design<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Enterprise website design<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Conversion rate optimization<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Analytics and CRO<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Consulting</div></a></div></div></div><div class="services__tab__service"><a dw-services="5" href="/branding-agency" class="f_link services-link w-inline-block"><div>Branding (6)</div></a><div class="services__tab__tags-hidden"><div class="services__tab__tags"><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Brand strategy<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Brand identity &amp; positioning<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Visual language<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Rebranding<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Brand messaging<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Brand implementation &amp; guidelines</div></a></div></div></div><div class="services__tab__service"><a dw-services="6" href="/content-creation" class="f_link services-link w-inline-block"><div>3D/Motion design (5)</div></a><div class="services__tab__tags-hidden"><div class="services__tab__tags"><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Video production<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Copywriting<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Illustrations<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Video explainers<br/></div></a><a href="#" class="services_tag-link w-inline-block"><div class="f_body-small">Marketing materials<br/></div></a></div></div></div></div><div data-w-id="9ed9a315-f06f-b4ba-ff7e-41f89fd17032" class="services__tab__btn is--desk-tab"><div class="html-embed-6 is--top w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 10 6" fill="none">
+  <path d="M9.5 5.5L5 1L0.5 5.5" stroke="currentColor" stroke-width="1"/>
+</svg></div><div class="html-embed-6 is--bottom w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 10 6" fill="none">
+  <path d="M9.5 0.5L5 5L0.5 0.5" stroke="currentColor" stroke-width="1"/>
+</svg></div></div></div></div><div data-w-id="ed223d02-d8b0-767b-c68c-cea9b5a9213d" class="close_services-2"></div></div><div fs-cc="banner" class="cookies"><div class="subtitle">We use cookies</div><div class="smallfont opacity30">We use cookies to ensure that we give you the best experience on our website. By continuing to browse the site, you are agreeing to our use of cookies.</div><div fs-cc="close" data-w-id="15406ff7-69ea-e070-25bb-26b06451f2cb" class="smallfont link_underline">Accept cookies</div></div><div class="overlay"><div class="pre_anima"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/641c4419d9c4d418661755fc_4-1.svg" loading="eager" alt="" class="pre_1"/><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/641c4717fce0f13463db245f_Fourmeta.svg" loading="eager" alt="" class="pre_full_desk"/><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/641c4717fce0f13463db245f_Fourmeta.svg" loading="eager" alt="" class="pre_full_table"/><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/641c4717fce0f13463db245f_Fourmeta.svg" loading="eager" alt="" class="pre_full_mobile"/><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/641c44197e76f9c2fb1592b9_4-2.svg" loading="eager" alt="" class="pre_2"/></div></div><section class="content gray"><div class="blog"><div class="blog__nav"><div class="blog__author"><div class="blog__author-written">Written by</div><img alt="" loading="lazy" src="https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523e00d91fb811fef32b716_img.webp" sizes="(max-width: 767px) 13vw, (max-width: 991px) 11vw, 5vw" srcset="https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523e00d91fb811fef32b716_img-p-500.webp 500w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523e00d91fb811fef32b716_img-p-800.webp 800w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523e00d91fb811fef32b716_img-p-1080.webp 1080w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523e00d91fb811fef32b716_img-p-1600.webp 1600w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523e00d91fb811fef32b716_img.webp 1692w" class="blog__author-photo"/><div class="blog__author-info"><div class="blog__author-name serif">Anton Boykov</div><div class="blog__cre-at">October 9, 2023</div></div></div><div class="blog__socials"><a href="https://www.linkedin.com/company/askflow-ai/" target="_blank" class="blog__socials-link w-inline-block"><div>In</div></a><a href="https://www.instagram.com/askflow.ai/" target="_blank" class="blog__socials-link w-inline-block"><div>Fb</div></a><a href="https://www.youtube.com/@askflowai" target="_blank" class="blog__socials-link w-inline-block"><div class="blog__socials-icon">Tw</div></a><a href="https://twitter.com/AskflowAI" target="_blank" class="blog__socials-link w-inline-block"><div>Li</div></a></div><div class="blog__arrow-desk"><div data-w-id="5081a017-bd21-7511-5361-ee3bfcaffe0a" class="indicator-wrap js-arrow-indicator"><div class="indicator__icon"><div class="indicator-wrap__arrow-cont"><div class="indicator-wrap__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" d="M12 4v15m0 0-6.5-6.5M12 19l6.5-6.5"/>
+</svg></div></div></div><div class="circle-l"><div class="circle left"></div></div><div class="circle-r"><div class="circle right"></div></div></div></div></div><div class="blog__main"><h1 class="h1 blog__title serif">How and Why Migrate from Magento to Shopify</h1><div class="blog__subtitle">Magento and Shopify are two of the leading ecommerce platforms. Find out why Shopify is superior and how to migrate your store over to Shopify.</div><div class="blog__img-cont"><img alt="" loading="lazy" src="https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration.webp" sizes="(max-width: 767px) 92vw, (max-width: 991px) 70vw, 72vw" srcset="https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration-p-500.webp 500w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration-p-800.webp 800w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration-p-1080.webp 1080w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration-p-1600.webp 1600w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration-p-2000.webp 2000w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration-p-2600.webp 2600w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration-p-3200.webp 3200w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523fed539a2092ff0d6eb0c_Magento-to-Shopify-Migration.webp 5954w" class="blog__image"/></div><div class="blog__richtext w-richtext"><p>There is currently a power struggle in the world of ecommerce platforms: Magento vs Shopify. Think Apple vs Samsung, BMW vs Mercedes Benz. Except in this power struggle, a clear winner is emerging. In the competitive world of ecommerce, no one wants to be left behind. That&#x27;s why more and more store owners are considering migrating from Magento to Shopify, and for good reason. </p><p>Shopify is becoming increasingly popular among online store owners. Both platforms certainly have their pros and cons. The question is, which platform is right for your store? In this article, we&#x27;ll compare the two platforms and look at the pros and cons of each. We will then consider everything you need to know to switch from Magento to Shopify successfully.</p><h2>Reasons Why Store Owners are Choosing Shopify Over Magento</h2><p>Shopify has begun to separate and distance itself from the competition of Magento. Here are some of the <a href="https://blog.fourmeta.com/why-use-shopify">reasons why Shopify</a> is in the lead: </p><ul role="list"><li>Shopify is more user-friendly</li><li>Shopify is faster</li><li>Shopify offers more features</li><li>Shopify is cheaper</li><li>Shopify offers better marketing options</li><li>Shopify offers dedicated customer support</li></ul><h3>Ease of use</h3><p>Shopify offers a more user-friendly platform that is relatively easy to learn. In contrast, Magento is much more complex and challenging to use, particularly for store owners who are not technically inclined. Furthermore, Shopify&#x27;s monthly costs are significantly lower than Magento&#x27;s fees, making it a more affordable option in the long run.</p><h3>Speed</h3><p>Another benefit of Shopify is that it is significantly faster and more reliable than Magento. This is because Shopify is a hosted platform, meaning that all the technical aspects of running your store are taken care of by Shopify.</p><p>In contrast, Magento is an open-source platform, which means you are responsible for setting up and maintaining your own server. As a result, you will need to find a hosting provider that supports Magento, and you will likely need to hire a developer. This means Magento is often slower, less reliable, and more expensive than Shopify.</p><h3>Features</h3><p>Shopify also offers a wide range of features, including a blog, automatic tax calculations, and the ability to create unlimited products. On the other hand, Magento is more limited in terms of features.</p><h3>Price</h3><p>Shopify&#x27;s monthly costs are significantly lower than Magento&#x27;s fees. For example, Shopify&#x27;s Basic plan costs $29 per month, while Magento&#x27;s Community Edition is free but requires additional expenses for hosting and features. As a result, Shopify is more affordable in the long run.</p><h3>Marketing</h3><p>Marketing with Shopify is a breeze. Shopify provides all the necessary tools to create and run an email campaign through third-party integration and advertise and sell on several social media platforms (Instagram, Pinterest, Facebook). </p><p>On the other hand, marketing with Magento is much more technical. You have to install various extensions and likely use a developer for all marketing integration to benefit fully.</p><h3>Customer support</h3><p>One of the most important factors where Shopify shows itself superior to Magento is customer support. Shopify provides 24/7 customer support over the phone, live chat, social media support, and email support. </p><p>Magento does not have dedicated customer support. Instead, you will have to dig through various user guides and go through online communities to resolve any issues you face.</p><p>‍</p><figure class="w-richtext-figure-type-video w-richtext-align-center" style="padding-bottom:33.723653395784545%" class="w-richtext-align-center w-richtext-figure-type-video"><div><iframe allowfullscreen="true" frameborder="0" scrolling="no" src="https://www.youtube.com/embed/wvmP4GwCcKs" title="5 REASONS TO CHOOSE SHOPIFY"></iframe></div></figure><p>‍</p><h2>Migrating from Magento to Shopify</h2><p>Shopify has clearly shown itself to be a superior product in the world of ecommerce. While numerous other platforms are passable, if you want your store to grow, it&#x27;s time to consider a move to Shopify. No one wants to be left behind, whether you are talking about the Titanic, a fun road trip, or using superior products for your business. That&#x27;s why there is no time like the present to migrate from Magento to Shopify. </p><p>Making the switch from Magento to Shopify can seem daunting, but it doesn&#x27;t have to be. This section will outline everything you need to know to make a successful migration.</p><p>However, consider using <a href="https://www.fourmeta.com/shopify-ecommerce">our Shopify experts</a> if you feel that you don&#x27;t have the energy or the technical skills to follow the steps below. After partnering with Shopify for several years, our migration process offers both speed and reliability. In addition, our customer reviews and their results speak for themselves.</p><p>As promised, here is the step-by-step process of migrating from Magento to Shopify.</p><h3>Step 1. Set up your Shopify Account</h3><p>First, you will need to set up a Shopify account. You can do this by going to shopify.com and clicking &quot;Get Started.&quot; Next, enter your email address and password and click &quot;Create Account.&quot;</p><h3>Select your plan</h3><p>Next, you will need to select your plan. There are three plans: Basic, Shopify, and Advanced. The Basic plan is $29 per month and includes all the essential features for running your store. The Shopify plan is $79 per month and includes all the Basic plan features plus additional features such as gift cards and abandoned cart recovery. Finally, the Advanced plan is $299 per month and includes all the features of the Shopify plan plus additional features such as professional reports and third-party integrations.</p><p>To determine which plan is best for you, consider how many products you want to sell, whether you want to use an existing domain name or create a new one, and how much customer support you need.</p><p>The Basic plan is a good option if you are just starting. If you are selling a large number of products, the Advanced plan is likely best. If you are unsure which plan to choose, the Shopify plan is an excellent middle ground.</p><p><strong>Enter Your Business Information</strong></p><p>Next, you will need to enter your business information. This includes your business name, address, and phone number. You will also need to enter your credit card information so that Shopify can bill you for your selected plan.</p><p><strong>Choose Your Theme</strong></p><p>Now it&#x27;s time to choose your theme. A theme is a pre-designed template that you can use to give your store a specific look and feel. Shopify offers both free and paid themes.</p><p>To browse the available themes, go to &quot;Theme Library&quot; in your Shopify admin and click &quot;Visit Theme Store.&quot; From here, you can use the filters to find the perfect theme for your store. Once you have found a theme you like, click &quot;Add to Cart&quot; and then &quot;Checkout.&quot;</p><h3>Step 2. Create a backup of your Magento store</h3><p>Before you begin the migration process, it&#x27;s essential to create a backup of your Magento store. This will ensure that you have a copy of your data if something goes wrong during the migration.</p><p>There are two ways to create a backup of your Magento store:</p><p>1. <em>Use the Magento Backup Functionality</em></p><p>The first way to create a backup is to use the built-in backup functionality in Magento. To do this, log in to your Magento admin and go to &quot;System&quot;&gt; &quot;Tools&quot;&gt; &quot;Backups.&quot; Next, select which components you want to include in your backup and then click &quot;Create Backup.&quot;</p><p>2<em>. Export Your Data in CSV Format</em></p><p>The second way to create a backup is to export your data in CSV format. To do this, go to &quot;System&quot;&gt; &quot;Export&quot; and select which data you want to export. Then, click &quot;Export.&quot;</p><p>Save the exported file to your computer and make sure to keep it safe. You will need it later in the migration process.</p><h3>Step 3. Install the Shopify Migration Tool</h3><p>Now it&#x27;s time to install the Shopify Migration Tool. This tool allows you to migrate your data from Magento to Shopify. The tool is available for free on the Shopify website.</p><p>To install the tool, go to shopify.com/migration-tool and click &quot;Download.&quot; Then, follow the instructions to install the tool on your computer.</p><p>If you don&#x27;t like the Shopify Migration tool, you can choose a different one from several other highly-rated apps available.</p><p>Now that you have installed the Shopify Migration Tool, it&#x27;s time to start the migration process.</p><h3>Step 4. Export your Magento data</h3><p>To export your data from Magento, log in to your Magento admin and go to &quot;System&quot;&gt; &quot;Export.&quot; Select which data you want to export and then click &quot;Export.&quot;</p><p>Save the exported file to your computer and make sure to keep it safe. You will need it later in the migration process.</p><h3>Step 5. Import your data into Shopify</h3><p>Now it&#x27;s time to import your data into Shopify. To do this, open the Shopify Migration Tool and click &quot;Start Migration.&quot; Then, follow the instructions to select your Magento data file and import it into Shopify.</p><p>The Shopify Migration Tool will automatically create a new Shopify store for you and import your data into it. It will also create all of the necessary pages and products in your store.</p><h3>Step 6. Review your imported data</h3><p>Once the migration process is complete, it&#x27;s essential to review your data and ensure that everything was imported correctly. To do this, log in to your Shopify admin and look around.</p><p>Check your products to ensure that all information is correct and that the product images are showing up correctly. Also, look at your store&#x27;s pages and make sure that they are all there and displaying correctly.</p><h3>Possible issues</h3><p>As the Magento to Shopify migration is not a straightforward process, you will often bump into various issues. Some of these include:</p><ul role="list"><li>The data was successfully imported, although with a few minor changes: this means that some data was successfully imported but with minor changes, such as a product&#x27;s name or price missing (If we are comparing migration to moving apartments, this would be tiny scuffs or blemishes on your furniture, minor things that can be fixed)</li><li>Variants of Products were not imported: this means that product variants (size, colour, etc.) were not imported correctly, and you will need to create them manually (These are your items that were lost during the said move, those that you will need to buy once again)</li><li>Imported products were not published: this means that the product was successfully imported but is not yet published and will not be visible in your store (These are the items that were left on the truck and not brought in when moving)</li><li>Duplicate products: this means that the tool imported the same product twice, so you will need to delete one of them (When moving, this is everyone&#x27;s dream - free stuff. You had one TV, now you have two)</li></ul><p>Overall, Magento to Shopify migration can be challenging and time-consuming. However, you need to take a few critical steps to ensure that your data is migrated correctly. By following the steps outlined in this blog post, you should be able to safely migrate your store from Magento to Shopify with minimal errors.</p><p>Now that you know the actual steps of migrating from Magento to Shopify, you might be wondering how much time it takes and how much it costs. Both of these are valid questions.</p><h2>How Much Time Does Migration Take</h2><p>As with anything moving and migrating, much of it depends on the size. For example, if you have a 1000-square-meter house, it will take more time to pack everything up, disassemble furniture, load it onto the truck, and unload it at your new home than if you were moving a 100-square-meter apartment.</p><p>The same goes for data. Again, the migration process will be relatively quick and easy if you have a small Magento store with only a few products. However, if you have a large Magento store with a lot of products, the migration process will take longer. </p><p>However, if you have a friend helping you move, the process will go by much quicker. The same goes for data migration. Again, the process will go much quicker if you have assistance.</p><p>You are in luck, as you have a friend in Fourmeta. After working together with Shopify for years, our experts or &quot;professional movers&quot; have developed an efficient process that takes away your stress and brings you serenity and a brand new store.</p><p>If you&#x27;re looking for a hassle-free Magento to Shopify migration, something to put your mind to ease, look no further than Fourmeta. We have a proven track record of successful migrations, and we guarantee that your data will be migrated safely and securely. With our help, the process is easy and stress-free. You get to sit back and enjoy while our experts do all the heavy lifting. </p><p>If you have ever moved to new living quarters, you don&#x27;t just grab the first thing you see and load it onto the truck. You know that a carefully thought-out process is necessary. When moving your store, we understand the same thing. So here is what we do:</p><ul role="list"><li>First, we analyse. We look at what we are moving; we study your store, your design, and everything else to learn about your needs and wants.</li><li>Then, we plan the move. Just like when moving apartments, you plan where you start and what order you will bring down the furniture; we do the same for your store. We get everything ready to ensure the process is as smooth as possible, without any losses or &quot;damages to your belongings.&quot;</li><li>After that, we proceed to migrate your store to Shopify. We &quot;load the truck and drive to the new location,&quot; so to speak. We bring over all your data, inventory, content, and relevant information to Shopify.</li><li>Finally, once we &quot;unload your belongings&quot; at the new location, we look around to check if we got everything and that nothing is missing or broken. The final step of our migration process is quality assurance. We run various checks and tests to ensure your new Shopify store is in tip-top shape and running smoother than a Rolls-Royce.</li></ul><p>Even though this description of our process has been simplified, we hope that it gives you some clarity about how we work and what to expect when you use our services.</p><p>Now that you know about our process, let&#x27;s move on to the next question - the cost.</p><h2>How Much Does Migration Cost</h2><p>The cost is always a tricky subject. It&#x27;s hard to give a definitive answer because it depends on the size of your store and what you need.</p><p>As a general rule, the larger your store is, the more it will cost to migrate. This is because there is more data that needs to be moved, and more complex data structures take longer to migrate.</p><p>Another determining factor is the plan you choose with Shopify. Shopify has three different plans: Basic, Shopify, and Advanced Shopify. The price increases as the features and support increase. </p><p>When thinking about pricing, remember to consider the cost of shutting down your store during the migration process. Obviously, the longer the migration process takes, the more you lose out on potential sales. Thus, make sure you factor this into your decision whether you want to do it yourself or hire a Shopify agency.</p><p>In the end, the positive impact and increased profits from moving to Shopify will cover any <a href="https://blog.fourmeta.com/shopify-migration-cost-and-time">migration costs</a>. In addition, since moving to Shopify, experience shows that our customers have increased sales (some as high as 300%) and conversion rates.</p><p>At Fourmeta, we like to keep things simple. We don&#x27;t believe in hidden fees or complicated pricing models.</p><h2>Final Thoughts</h2><p>If you&#x27;re looking for a hassle-free Magento to Shopify migration, something to put your mind to ease, look no further than Fourmeta. We have a proven track record of successful migrations, and we guarantee that your data will be migrated safely and securely. With our help, the process is easy and stress-free. You get to sit back and enjoy while our experts do all the heavy lifting. </p><p>If you want to grow your business and realise that migration to Shopify is the next logical step, look over some of the articles in our <a href="https://blog.fourmeta.com">blogs</a> or feel free to reach out to us.</p><p><strong>Related articles</strong></p><p><a href="https://blog.fourmeta.com/shopify-migration-cost-and-time">How to Ensure a Successful Migration from Wix to Shopify</a></p><p><a href="https://blog.fourmeta.com/woocommerce-to-shopify-migration">WooCommerce to Shopify Migration Guide - What You Need to Know</a></p><p><a href="https://blog.fourmeta.com/shopify-vs-magento-2022-which-is-best-for-ecommerce">Shopify vs WooCommerce 2022: Fourmeta’s Review</a></p><p><a href="https://blog.fourmeta.com/wix-vs-shopify">Wix vs Shopify for Ecommerce (2022)</a></p><p><a href="https://blog.fourmeta.com/shopify-vs-magento-2022-which-is-best-for-ecommerce">Shopify vs Magento (2022) - Which is Best for eCommerce?</a></p><p>‍</p></div><div class="blog__cat-block"><div class="blog__cat-title">Blog articles</div><div class="blog__cat-list-wrapper w-dyn-list"><div role="list" class="blog__cat-list w-dyn-items"><div data-w-id="998defb0-71c2-7e11-9a9e-c0ba04c8ed82" role="listitem" class="blog__cat-item w-dyn-item"><a href="/blog" class="blog__cat-link hidden">UX/UI</a><div class="blog__cat-link">UX/UI</div></div><div data-w-id="998defb0-71c2-7e11-9a9e-c0ba04c8ed82" role="listitem" class="blog__cat-item w-dyn-item"><a href="/blog" class="blog__cat-link hidden">Shopify</a><div class="blog__cat-link">Shopify</div></div></div></div></div></div></div><div class="next-blog"><div data-w-id="147b820f-2ef9-5c03-0f7c-ece406b8cf81" class="next_case_button"><a data-w-id="147b820f-2ef9-5c03-0f7c-ece406b8cf82" href="/blog/promote-your-shopify-store" class="timeout w-inline-block"><img src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/64078af1878d0929dc983870_plus.svg" loading="lazy" alt="" class="close_icon"/></a></div><div class="next-blog__info"><div class="next-blog__name serif">19 Ways to Drive Traffic and Sales to Your Shopify Store</div><div class="next-blog__group"><div class="next-blog__category">Shopify</div><div class="next-blog__time">7 mins</div></div></div><a dw-nav="light" data-w-id="44cf8b40-fec9-46e2-db1e-7297c41aaeb4" href="/blog/promote-your-shopify-store" class="section_link timeout width-100 w-inline-block"><div class="case_next_fon"><img alt="" loading="lazy" src="https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store.webp" sizes="100vw" srcset="https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store-p-500.webp 500w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store-p-800.webp 800w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store-p-1080.webp 1080w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store-p-1600.webp 1600w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store-p-2000.webp 2000w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store-p-2600.webp 2600w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store-p-3200.webp 3200w, https://assets-global.website-files.com/6523ceb0118fdda7e4978dfb/6523f7e2b7f029dac52d13ce_Ways-to-promote-your-Shopify-store.webp 5954w" class="next-blog__img-cont"/></div></a></div><div class="article-footer"><div class="article-footer__bottom"><div class="footer_bottom_left article"><div class="article-footer__category">Shopify</div><div class="blog__arrow-mob"><div data-w-id="5081a017-bd21-7511-5361-ee3bfcaffe0a" class="indicator-wrap js-arrow-indicator"><div class="indicator__icon"><div class="indicator-wrap__arrow-cont"><div class="indicator-wrap__arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" d="M12 4v15m0 0-6.5-6.5M12 19l6.5-6.5"/>
+</svg></div></div></div><div class="circle-l"><div class="circle left"></div></div><div class="circle-r"><div class="circle right"></div></div></div></div></div><div class="footer_bottom_right article"><div class="article-footer__time"><div class="article-footer__mins">10 mins</div><div class="article-footer__read">read</div></div></div></div></div></section><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=63f5d378a903c2a12583ce2f" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://assets-global.website-files.com/63f5d378a903c2a12583ce2f/js/fourmeta-stage.3ed4ccd25.js" type="text/javascript"></script><!-- Navbar Services Desktop Hover Toggle -->
+<script src="https://hmwrcw.csb.app/dw-services-desktop.js"></script>
+<!-- Navbar Dark/Light -->
+<script src="https://hmwrcw.csb.app/dw-nav-dark-light.js"></script>
+
+<script src="https://moment.github.io/luxon/global/luxon.js"></script>
+<script>
+var DateTime = luxon.DateTime;
+const locations = document.querySelectorAll("section.times div");
+const updateTimes = function () {
+  locations.forEach(location => {
+    const outputs = location.querySelectorAll(".output")
+    const timezone = location.getAttribute("data-timezone")
+    const now = luxon.DateTime.now().setZone(timezone)
+    outputs.forEach(output => {
+      output.innerHTML = now.toFormat("HH:mm:ss")
+    })
+    const hour = parseInt(now.toFormat("H"))
+    if (hour >= 9 && hour < 18){
+    	location.classList.add("open")
+    }
+  })
+}
+updateTimes()
+</script>
+
+<style>
+section.times div.time-array.open {opacity:1;}
+</style>
+
+<script>
+setInterval(function () {
+	updateTimes()
+}, 1000)
+</script>
+
+<script>
+$('.timeout').click(function (e) {
+    e.preventDefault();
+    var goTo = this.getAttribute("href");
+
+    setTimeout(function(){
+         window.location = goTo;
+    },1500);       
+});
+</script>
+
+<script>
+$("#wf-form-Brief").submit(function(e){
+   e.preventDefault();
+   var href = $(this).attr("action");
+   $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: href,
+      data: $(this).serialize(),
+      success: function(response){
+         if(response.status === "success"){
+           $('#wf-form-Brief')[0].reset();
+           $('.w--redirected-checked').removeClass('w--redirected-checked');
+         }else{
+            console.log("An error occured: " + response.message);
+         }
+      }
+   });
+});
+</script>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script>
+let mainCarousel1 = ".tricks-slider-1";
+let mainSlides1 = ".tricks-slider_slide-1";
+let mainCarousel2 = ".tricks-slider-2";
+let mainSlides2 = ".tricks-slider_slide-2";
+let mainCarousel3 = ".tricks-slider-3";
+let mainSlides3 = ".tricks-slider_slide-3";
+
+let parallaxPercentage = 49;
+
+let flkty1 = new Flickity(mainCarousel1, {
+  contain: true,
+  freeScroll: true,
+  percentPosition: true,
+  pageDots: false,
+  cellSelector: mainSlides1,
+  cellAlign: "left",
+  resize: true,
+  selectedAttraction: 0.01,
+  dragThreshold: 1,
+  freeScrollFriction: 0.05
+});
+let flkty2 = new Flickity(mainCarousel2, {
+  contain: true,
+  freeScroll: true,
+  percentPosition: true,
+  pageDots: false,
+  cellSelector: mainSlides2,
+  cellAlign: "left",
+  resize: true,
+  selectedAttraction: 0.01,
+  dragThreshold: 1,
+  freeScrollFriction: 0.05
+});
+let flkty3 = new Flickity(mainCarousel3, {
+  contain: true,
+  freeScroll: true,
+  percentPosition: true,
+  pageDots: false,
+  cellSelector: mainSlides3,
+  cellAlign: "left",
+  resize: true,
+  selectedAttraction: 0.01,
+  dragThreshold: 1,
+  freeScrollFriction: 0.05
+});
+
+flkty1.on("scroll", function (progress) {
+  setImagePositions(mainCarousel1, mainSlides1);
+  $(".progress_fill-1").css("width", `${progress * 100}%`);
+});
+flkty2.on("scroll", function (progress) {
+  setImagePositions(mainCarousel2, mainSlides2);
+  $(".progress_fill-2").css("width", `${progress * 100}%`);
+});
+flkty3.on("scroll", function (progress) {
+  setImagePositions(mainCarousel3, mainSlides3);
+  $(".progress_fill-3").css("width", `${progress * 100}%`);
+});
+
+function setImagePositions(main, slides) {
+  $(slides).each(function (index) {
+    let targetElement = $(this);
+    let elementOffset =
+      targetElement.offset().left +
+      targetElement.width() -
+      $(main).offset().left;
+    let parentWidth = $(main).width() + targetElement.width();
+    let myProgress = elementOffset / parentWidth;
+    let slideProgress = parallaxPercentage * myProgress;
+    if (slideProgress > parallaxPercentage) {
+      slideProgress = parallaxPercentage;
+    } else if (slideProgress < 0) {
+      slideProgress = 0;
+    }
+    targetElement
+      .find(".image")
+      .css("transform", `translateX(-${slideProgress}%)`);
+  });
+}
+
+setImagePositions(mainCarousel1, mainSlides1);
+setImagePositions(mainCarousel2, mainSlides2);
+setImagePositions(mainCarousel3, mainSlides3);
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@0.2.28/bundled/lenis.js"></script>
+<script>
+const lenis = new Lenis({
+  duration: 2.4,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+  direction: 'vertical', // vertical, horizontal
+  gestureDirection: 'vertical', // vertical, horizontal, both
+  smooth: true,
+  mouseMultiplier: 1,
+  smoothTouch: false,
+  touchMultiplier: 0.9,
+  infinite: false,
+})
+
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+</script>
+
+
+
+<script>
+  const blockScroll = () => {
+    if (typeof document === 'undefined') return;
+    const html = document.documentElement;
+    const {body} = document;
+    if (!body || !body.style) return;
+    const scrollBarWidth = window.innerWidth - html.clientWidth;
+    const bodyPaddingRight =
+            parseInt(
+                    window.getComputedStyle(body).getPropertyValue('padding-right'),
+            ) || 0;
+    html.style.position = 'relative';
+    body.style.position = 'relative';
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`;
+    lenis && lenis.stop();
+  };
+  const allowScroll = () => {
+    if (typeof document === 'undefined') return;
+    const html = document.documentElement;
+    const {body} = document;
+    if (!body || !body.style) return;
+    html.style.position = '';
+    html.style.overflow = '';
+    body.style.position = '';
+    body.style.overflow = '';
+    body.style.paddingRight = '';
+    lenis && lenis.start();
+  };
+
+  const listBlockScroll = document.querySelectorAll("[data-button-scroll-block]");
+  listBlockScroll && listBlockScroll.forEach(button => {
+    button && button.addEventListener('click', (e) => blockScroll());
+  });
+  const listAllowScroll = document.querySelectorAll("[data-button-scroll-allow]");
+  listAllowScroll && listAllowScroll.forEach(button => {
+    button && button.addEventListener('click', (e) => allowScroll());
+  });
+
+</script>
+
+<script>
+  $('.js-disabled_submit') && $('.js-disabled_submit').prop("disabled");
+ 
+  let requiredFields = {};
+  
+  $("#wf-form-Brief .form_inputs_list_2col .input-required").each(function() {
+   requiredFields = {
+      ...requiredFields,
+      [$(this).attr('name')]: $(this).val().trim() !== '',
+    };
+    
+    $(this).on('input', function() {
+      const isCorrect = $(this).attr('name') === 'E-mail' 
+      ? /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test($(this).val().trim())
+      : $(this).val().trim() !== '';
+      requiredFields = {
+        ...requiredFields,
+        [$(this).attr('name')]: isCorrect,
+      };
+      
+      if (isCorrect) {
+       $(this).css('border-color', '#000 #000 rgba(0, 0, 0, 0.1)');
+      } else {
+       $(this).css('border-color', '#C61616');
+      }
+      
+      if (Object.values(requiredFields).every(item => item)) {
+       $('.js-disabled_submit').css('display', 'none');
+        $('.js-active_submit').css('display', 'inline-block');
+        
+      } else {
+       $('.js-disabled_submit').css('display', 'inline-block');
+        $('.js-active_submit').css('display', 'none');
+      }
+    });
+  });
+</script>
+
+<script>
+  let fitObjects = Array.from($('.home_work_double'));
+  
+  function filterFitObjectsByClass(filterParam) {
+  	let filtered = fitObjects.filter(item => Array.from(item.classList).includes(filterParam));
+    $('.projects_cases').empty().append(filtered);
+  };
+  
+  $('.filter_type').each(function(){
+    $(this).on('click', function() {
+      	filterFitObjectsByClass($(this).attr('data-filter-type'));
+      	$('.cases_filters .subtitle').text($(this).children().first().text());
+      	$('.cases_count .subtitle').text($(this).children().last().text());
+      	$('.cases_filters_close').click();
+    });
+  });
+</script>
+
+<script>
+const letsTalkSteps = [
+  {titleClass: 'brief_menu_step_02', formClass: 'brief_type'},
+  {titleClass: 'brief_menu_step_03', formClass: 'brief_budget'},
+  {titleClass: 'brief_menu_step_04', formClass: 'brief_from'},
+];
+
+letsTalkSteps.forEach(step => {
+  $(`.${step.titleClass}`).on('mouseover', function () {
+    if (Array.from($(`.${step.formClass} .buttons_list_brief input`)).every(item => !($(item).is(':checked')) )) {
+      $(this).css('pointer-events', 'none');
+    }
+  });
+  
+  $(`.${step.formClass} .buttons_list_brief input`).each(function() {
+    $(this).on('click', function() {
+      $(`.${step.titleClass}`).css('pointer-events', 'auto');
+    })
+  });
+});
+</script>
+
+<script>
+if ($('.autoplay-video video').length > 0) {
+   $('.autoplay-video video').trigger('play');  
+}
+</script>
+
+<script>
+  $("#wf-form-ensure-form").submit(function(e){
+     e.preventDefault();
+     var href = $(this).attr("action");
+     $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: href,
+        data: $(this).serialize(),
+        success: function(response){
+           if(response.status === "success"){
+             $('#wf-form-ensure-form')[0].reset();
+           }else{
+              console.log("An error occured: " + response.message);
+           }
+        }
+     });
+  });
+  
+  $(document).ready(function() {
+  var $arrowButton = $('.js-arrow-indicator');
+  
+  $(window).scroll(function() {
+    var scrollPercentage = ($(window).scrollTop() / ($(document).height() - $(window).height())) * 100;
+    
+    if (scrollPercentage > 50) {
+      $('.indicator-wrap__arrow').css('transform', 'rotate(180deg)');
+    } else {
+      $('.indicator-wrap__arrow').css('transform', 'rotate(0deg)');
+    }
+  });
+  
+  $('.js-arrow-indicator').on('click', function() {
+    var scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+    if (scrollPercentage < 50) {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth', duration: 1000 });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth', duration: 1000 });
+    }
+  });
+});
+
+$('.js-navbutton-theme').on('click', function() {
+  $('.body').toggleClass('body--light');
+});
+  
+$('.js-navbutton-mob-theme').on('click', function() {
+  $('.body').toggleClass('body--light');
+});
+  
+  $('.blog__cat-link').on('click', function(e) {
+  let catText = $(this).text();
+  let urlTo = `/blog?filter-by=${catText}`
+  
+  window.location.href = urlTo;
+})
+    
+  
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+  /* If browser back button was used, flush cache */
+(function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
+  
+
+  
+  $('.blogs__show-more').on('click', function() {
+  let activeCategory = $('.blogs__categories-item.fltr-active');
+    
+    setTimeout(function() {
+      activeCategory[0].click();
+    }, 300);
+    setTimeout(function() {
+      scrollToTop('blogs');
+    }, 750);
+    setTimeout(function() {
+      activeCategory[0].click();
+    }, 1000);
+  
+});
+
+function scrollToTop(sectionId) {
+  var targetSection = $('#' + sectionId);
+  if (targetSection.length > 0) {
+    $('html, body').animate({
+      scrollTop: targetSection.offset().top
+    }, 'slow');
+  }
+}
+</script>
+
+<script>
+var currentCloseMenu = document.querySelector('.navbar');
+
+var observerMenu = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (window.innerWidth < 768) {
+        if (mutation.attributeName === 'style') {
+            var currentDisplayStyle = currentCloseMenu.style.display;
+
+            if (currentDisplayStyle === 'none') {
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                $('body').css('overflow-y', 'hidden');
+                $('body').css('height', '100vh');
+            } else {
+                $('body').css('overflow-y', 'auto');
+                $('body').css('height', 'auto');
+            }
+        }
+      }
+    });
+});
+
+var config = { attributes: true };
+
+observerMenu.observe(currentCloseMenu, config);
+
+
+</script>
+
+</body></html>
